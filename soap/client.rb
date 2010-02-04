@@ -1,16 +1,8 @@
-require 'soap/rpc/driver'
+require 'savon'
 
-NAMESPACE = 'urn:ruby:calculation'
-URL = 'http://localhost:8080/'
+client = Savon::Client.new "http://localhost:8080/"
 
-begin
-  driver = SOAP::RPC::Driver.new(URL, NAMESPACE)
-
-  # Add remote sevice methods
-  driver.add_method('add', 'a', 'b')
-
-  # Call remote service methods
-  puts driver.add(20, 30)
-rescue => err
-  puts err.message
+client.post! do |soap|
+  soap.namespace = "urn:savon:blog"
+  soap.body = { :data => {:title=>'some title', :message=>'message\nmultiline'}}
 end

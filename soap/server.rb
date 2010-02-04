@@ -1,25 +1,23 @@
 require "soap/rpc/standaloneserver"
 
-begin
-  class MyServer < SOAP::RPC::StandaloneServer
+class BlogServer < SOAP::RPC::StandaloneServer
 
-    # Expose our services
-    def initialize(*args)
-      super
-      self.level = Logger::Severity::DEBUG
-      add_method(self, 'add', 'a', 'b')
-      add_method(self, 'div', 'a', 'b')
-    end
-
-    # Handler methods
-    def add(a, b)
-      return a + b
-    end
-    def div(a, b) 
-      return a / b 
-    end
+  # Expose our services
+  def initialize(*args)
+    super
+    self.level = Logger::Severity::DEBUG
+    add_method(self, 'post', 'data')
   end
-  server = MyServer.new("MyServer",'urn:ruby:calculation', 'localhost', 8080)
+
+  # add a blog-post
+  def post(data)
+    p data
+    data.id
+  end
+
+end
+begin
+  server = BlogServer.new("BlogServer",'urn:savon:blog', 'localhost', 8080)
   trap('INT'){
     server.shutdown
   }
