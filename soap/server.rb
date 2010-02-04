@@ -2,7 +2,6 @@ require "soap/rpc/standaloneserver"
 
 class BlogServer < SOAP::RPC::StandaloneServer
 
-  # Expose our services
   def initialize(*args)
     super
     self.level = Logger::Severity::DEBUG
@@ -16,12 +15,9 @@ class BlogServer < SOAP::RPC::StandaloneServer
   end
 
 end
-begin
-  server = BlogServer.new("BlogServer",'urn:savon:blog', 'localhost', 8080)
-  trap('INT'){
-    server.shutdown
-  }
-  server.start
-rescue => err
-  puts err.message
-end
+
+server = BlogServer.new("BlogServer",'urn:savon:blog', 'localhost', 8080)
+trap('INT'){
+  server.shutdown
+}
+server.start
