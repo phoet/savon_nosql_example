@@ -1,0 +1,7 @@
+neeueueue
+
+- form_for @blog, :url => { :action => "create" } do |f|
+  = f.error_messages
+  = f.text_field :title
+  = f.text_field :message
+  = f.submit "submit post"
