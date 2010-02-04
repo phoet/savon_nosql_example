@@ -4,4 +4,8 @@
 	%head
 		%title Savon noSQL example
 	
-	%body= yield
+	%body
+		-if flash[:notice]
+			%div{:class=>"notice"}= flash[:notice]
+		= yield
+		
