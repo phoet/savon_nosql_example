@@ -12,6 +12,7 @@ class BlogController < ApplicationController
   def create
     @blog = Blog.new params[:blog]
     if @blog.valid?
+      @blog.save
       flash[:notice] = "Successfully created post"
       render :index
     else

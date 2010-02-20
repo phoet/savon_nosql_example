@@ -1,7 +1,11 @@
-neeueueue
+%h1 Create a new blog post
 
 - form_for @blog, :url => { :action => "create" } do |f|
-  = f.error_messages
-  = f.text_field :title
-  = f.text_field :message
-  = f.submit "submit post"
+	= f.error_messages
+	.title
+		= f.text_field :title
+		= f.label :title, 'Title'
+	.message
+		= f.text_field :message
+		= f.label :message, 'Message'
+	= f.submit "submit post"
