@@ -2,3 +2,8 @@
 %p 
 	Start with using the form for creating
 	= link_to("a blog post", :action=>:new)
+	
+%h2 All posts
+- @posts.each do |p|
+	%li=p
+= "No posts" if @posts.empty?

@@ -2,6 +2,7 @@ class BlogController < ApplicationController
 
   def index
     puts "index"
+    @posts = Blog.all
   end
 
   def new
@@ -14,7 +15,7 @@ class BlogController < ApplicationController
     if @blog.valid?
       @blog.save
       flash[:notice] = "Successfully created post"
-      render :index
+      redirect_to :action=>'index'
     else
       render :new
     end
