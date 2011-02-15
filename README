@@ -2,14 +2,16 @@ h1. Savon noSQL example
 
 This is an example project for using SOAP with Savon as a backing for a Rails model with validations.
 
-h2. install the gems
+h2. installation
 
+ $ rvm use 1.8.7
+ $ gem install -v=2.3.11 rails
  $ rake gems:install
 
 h2. Start the SOAP server
 
  $ cd soap
- $ ruby server.rb
+ $ ruby -rubygems server.rb
 
 You can shutdown the server with CTRL-C.
 
