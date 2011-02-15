@@ -13,7 +13,7 @@ h2. Start the SOAP server
 bc.. cd soap
 ruby -rubygems server.rb
 
-You can shutdown the server with CTRL-C.
+p. You can shutdown the server with CTRL-C.
 
 h2. Test the SOAP server
 
