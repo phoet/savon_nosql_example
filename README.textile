@@ -4,24 +4,18 @@ This is an example project for using SOAP with Savon as a backing for a Rails mo
 
 h2. installation
 
-<code>
- $ rvm use 1.8.7
- $ gem install -v=2.3.11 rails
- $ rake gems:install
-</code>
+bc.. rvm use 1.8.7
+gem install -v=2.3.11 rails
+rake gems:install
 
 h2. Start the SOAP server
 
-<code>
- $ cd soap
- $ ruby -rubygems server.rb
-</code>
+bc.. cd soap
+ruby -rubygems server.rb
 
 You can shutdown the server with CTRL-C.
 
 h2. Test the SOAP server
 
-<code>
- $ cd soap
- $ ruby -rubygems client.rb
-</code>
+bc.. cd soap
+ruby -rubygems client.rb
